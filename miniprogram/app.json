@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/bookkeeping/bookkeeping",
+    "pages/mine/about/about",
+    "pages/mine/bill/bill",
+    "pages/mine/mine",
+    "pages/bookstudy/bookstudy",
+    "pages/index/index",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff6b6a",
+    "navigationBarTitleText": "砰砰记账",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#ff6b6a",
+    "selectedColor": "#ff9d6a",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/bookkeeping/bookkeeping",
+        "text": "记账",
+        "iconPath": "images/jizhang.png",
+        "selectedIconPath": "images/jizhang0.png"
+        
+      },
+      {
+        "pagePath": "pages/bookstudy/bookstudy",
+        "text": "计划",
+        "iconPath": "images/plan.png",
+        "selectedIconPath": "images/plan0.png"
+       
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine0.png"
+        
+      }
+    ]
+  }
+}

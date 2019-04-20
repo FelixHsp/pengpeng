@@ -1,0 +1,28 @@
+<!--pages/mine/mine.wxml-->
+<view>
+  <view class='top-img'>
+    <view class='top-content'>
+      <view class='user-avatar'>
+        <open-data type="userAvatarUrl" class="top-img"></open-data>
+      </view>
+      <view class='user-name'>
+        <open-data type="userNickName" class="top-user"></open-data>
+      </view>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='pay' bindtap='moveBill'>
+    <image src='../../images/zichan.png' class='img-bill'></image>
+      我的资产
+    </view>
+    <view class='record' bindtap='moveAbout'>
+    <image src='../../images/women.png' class='img-record'></image>
+    关于我们
+    </view>
+    <view class='about'>
+    <image src='../../images/fankui.png'
+    class='img-about'></image>
+    <button class='button' open-type="feedback">意见反馈</button>
+    </view>
+  </view>
+</view>

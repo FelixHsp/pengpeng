@@ -1,0 +1,38 @@
+<view class='wrapper'>
+  <view class='user-name'>
+    你好！<open-data type="userNickName"></open-data>
+  </view>
+  <image src='../../images/add1.png' bindtap="showDialogBtn"></image>
+  <view class='mon'>{{mon}}月支出:{{zhichu}}</view>
+   <view class='mon'>{{mon}}月收入:{{shouru}}</view>
+</view>
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+      <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-title">添加账单</view>
+        <view class="modal-content">
+        <view class='type'>
+          <picker bindchange='bindtime' value='{{timeindex}}' range='{{timearray}}'>
+          选择类型
+            <view class='type-value'>{{timearray[timeindex]}}</view>
+          </picker>
+        </view>
+          <view class="modal-input">
+          <input placeholder-class="input-holder" bindinput="inputChange2" class="input" placeholder="请填写账单事项"></input>
+            <input placeholder-class="input-holder" bindinput="inputChange" class="input" type='number' placeholder="请填写金额"></input>
+          </view>
+        </view>
+        <view class="modal-footer">
+          <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+          <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+        </view>
+      </view>
+<view wx:for="{{list}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName._id}}" id="list">
+  <view class='list-item'>
+    <image class='img-pay' src='{{itemName.count_src}}'/>
+    <text class='title'>{{itemName.count_detail}}</text>
+    <view class='left'>
+    <view class='pay'>{{itemName.count_value}}元</view>
+    <view class='time'>{{itemName.studyhallreserve_begintime}}</view>
+    </view>
+  </view>
+</view>

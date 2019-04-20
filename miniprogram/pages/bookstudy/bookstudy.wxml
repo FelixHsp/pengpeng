@@ -1,0 +1,114 @@
+<view class='topTabSwiper'>
+  <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>未完成</view>
+  <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>已完成</view>
+</view>
+<swiper current="{{currentData}}" class='swiper' style="height:2000px;" duration="300" bindchange="bindchange">
+  <!-- 当前正在使用的自习室列表 -->
+  <swiper-item>
+    <view class='swiper_con'>
+      <!-- 模块 -->
+      <view wx:for="{{array}}" id="module" wx:key='{{item.index}}'>
+        <view class='plan'>
+          {{item.plan_detail}}
+        </view>
+        <view class='right' bindtap='del' data-id='{{index}}' >
+        </view>
+        <view class='left' bindtap='change' data-id='{{index}}' >
+        </view>
+      </view>
+       <view class='add' bindtap="showDialogBtn">
+        <image class="add-img" src='../../images/add.png'></image>
+      </view>
+      <!-- 文本编辑弹窗 -->
+      <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+      <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-title">添加计划</view>
+        <view class="modal-content">
+          <view class="modal-input">
+            <input placeholder-class="input-holder" bindinput="inputChange" class="input" placeholder="请填写学习计划"></input>
+          </view>
+        </view>
+        <view class="modal-footer">
+          <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+          <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+        </view>
+      </view>
+
+
+      <!-- 计划情况 -->
+
+      <view class="free-dialog {{ showDialog ? 'free-dialog--show' : '' }}">
+        <view class="free-dialog__mask" bindtap="toggleDialog" />
+        <view class="free-dialog__container">
+          <view style="padding: 5% 5% 15%;">
+            <form bindsubmit='submit' bindreset="reset">
+              <view bindtap='freetoBack' class="free-button free-dialog-reset">取消</view>
+              <view bindtap='freeBack' class="free-button free-dialog-submit">确定</view>
+
+              <radio-group class='free-radios' bindchange="radioChange">
+                <label class="free-radio" bindtap="click" wx:for="{{items}}" wx:key="{{items}}" data-id="{{index}}" style="{{index==id?'background:#48c23d;color:#fff;':'background:#fff;color:#000;'}}">
+                  <radio value="{{item.name}}" name="{{item.value}}"></radio>
+                  <label class="free-text">{{item.value}}</label>
+                </label>
+              </radio-group>
+            </form>
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+  <!-- 历史记录 -->
+  <swiper-item>
+    <view class='swiper_con'>
+
+      <!-- 模块 -->
+      <view wx:for="{{array2}}" id="module" wx:key='{{item.index}}'>
+        <view class='plan'>
+          {{item.plan_detail}}
+        </view>
+        <view class='right' bindtap='del2' data-id='{{index}}' >
+        </view>
+        <view class='left' bindtap='change2' data-id='{{index}}' >
+        </view>
+      </view>
+      <!-- 文本编辑弹窗 -->
+      <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+      <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-title">添加计划</view>
+        <view class="modal-content">
+          <view class="modal-input">
+            <input placeholder-class="input-holder" bindinput="inputChange" class="input" placeholder="请填写学习计划"></input>
+          </view>
+        </view>
+        <view class="modal-footer">
+          <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+          <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+        </view>
+      </view>
+
+
+      <!-- 计划情况 -->
+
+      <view class="free-dialog {{ showDialog ? 'free-dialog--show' : '' }}">
+        <view class="free-dialog__mask" bindtap="toggleDialog" />
+        <view class="free-dialog__container">
+          <view style="padding: 5% 5% 15%;">
+            <form bindsubmit='submit' bindreset="reset">
+              <view bindtap='freetoBack' class="free-button free-dialog-reset">取消</view>
+              <view bindtap='freeBack' class="free-button free-dialog-submit">确定</view>
+
+              <radio-group class='free-radios' bindchange="radioChange">
+                <label class="free-radio" bindtap="click" wx:for="{{items}}" wx:key="{{items}}" data-id="{{index}}" style="{{index==id?'background:#48c23d;color:#fff;':'background:#fff;color:#000;'}}">
+                  <radio value="{{item.name}}" name="{{item.value}}"></radio>
+                  <label class="free-text">{{item.value}}</label>
+                </label>
+              </radio-group>
+            </form>
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>

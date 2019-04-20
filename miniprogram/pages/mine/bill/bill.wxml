@@ -1,0 +1,26 @@
+<view>
+  <view class='wrapper'>
+    <view>
+      <image src='../../../images/zongzichan.png'></image>
+      总资产：{{count_staticassets}}
+    </view>
+    <view>
+      <image src='../../../images/jingzichan.png'></image>
+      净资产：{{count_totalassets}}
+    </view>
+  </view>
+  <view class='add' bindtap="showDialogBtn">点击设置当前总资产</view>
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+      <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-title">设置当前总资产</view>
+        <view class="modal-content">
+          <view class="modal-input">
+            <input placeholder-class="input-holder" bindinput="inputChange" class="input" type="number"/>
+          </view>
+        </view>
+        <view class="modal-footer">
+          <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+          <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+        </view>
+      </view>
+</view>
